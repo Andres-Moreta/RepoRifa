@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Solidaria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Rifa Solidaria</h1>
+        <p>Llena tus datos, selecciona tus números y guarda tu reserva.</p>
+    </header>
+
+    <main>
+        <section class="panel-compra">
+            <form id="form-reserva">
+                <div class="grupo-inputs">
+                    <div>
+                        <label for="nombre">Nombre y Apellido:</label>
+                        <input type="text" id="nombre" required placeholder="Ej. Ana Pérez">
+                    </div>
+                    <div>
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" required placeholder="Ej. 0991234567">
+                    </div>
+                </div>
+                
+                <div class="resumen">
+                    <p>Números seleccionados: <strong id="contador-numeros">0</strong></p>
+                    <p id="lista-seleccionados"></p>
+                </div>
+
+                <button type="submit" id="btn-guardar" disabled>Guardar y Reservar Números</button>
+            </form>
+        </section>
+
+        <div id="contenedor-boletos" class="cuadricula">
+            Cargando números...
+        </div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
