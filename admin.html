@@ -14,29 +14,57 @@
         .btn-pagar { background-color: #28a745; color: white; }
         .btn-liberar { background-color: #dc3545; color: white; }
         button:hover { opacity: 0.9; }
+        /* Contenedor con scroll horizontal para móviles */
+        .tabla-responsiva {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Hace que el scroll sea suave en iPhone/Android */
+            margin-top: 20px;
+        }
+
+        /* Ajuste de la tabla para que no colapse demasiado sus columnas */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+            min-width: 600px; /* Obliga a la tabla a mantener un ancho decente para no aplastar el texto */
+        }
+
+        /* Apilar los botones en móviles para que no ocupen tanto espacio a lo ancho */
+        td button {
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        
+        td button:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
     <div class="contenedor-admin">
         <h1>Control de Reservas (Administración)</h1>
         <p>Aquí aparecen únicamente los números en estado <strong>Amarillo (Reservado)</strong> pendientes de pago.</p>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Boleto</th>
-                    <th>Comprador</th>
-                    <th>Teléfono</th>
-                    <th>Vendedor</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-reservas">
-                <tr>
-                    <td colspan="5" style="text-align:center;">Cargando reservas pendientes...</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tabla-responsiva">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Boleto</th>
+                        <th>Comprador</th>
+                        <th>Teléfono</th>
+                        <th>Vendedor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-reservas">
+                    <tr>
+                        <td colspan="5" style="text-align:center;">Cargando reservas pendientes...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> <!-- Cierra el div justo después de la tabla -->
     </div>
 
     <script type="module" src="admin.js"></script>

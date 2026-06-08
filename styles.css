@@ -1,9 +1,11 @@
-CSS
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);; /* Degradado celeste a gris */
     padding: 20px;
+    min-height: 100vh; /* Asegura que el degradado cubra toda la pantalla hacia abajo */
+    margin: 0; /* Quita los márgenes por defecto del navegador */
 }
 
 /* Diseño de la cuadrícula */
@@ -54,12 +56,12 @@ body {
 
 /* Panel de compra superior */
 .panel-compra {
-    background-color: white;
+    background-color: #bbdcf5;
     padding: 20px;
     border-radius: 8px;
     max-width: 800px;
     margin: 0 auto 20px auto;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(233, 93, 93, 0.1);
     text-align: left;
 }
 
@@ -119,4 +121,82 @@ body {
     color: white;
     border: 2px solid #0056b3;
     transform: scale(1.1);
+}
+
+/* --- ESTILOS DEL ENCABEZADO Y LEMA --- */
+.encabezado-principal {
+    margin-bottom: 20px;
+}
+
+.encabezado-principal h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.lema {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+    background-color: #e9ecef;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- ESTILOS DE LOS PREMIOS --- */
+.seccion-premios {
+    max-width: 900px;
+    margin: 0 auto 35px auto;
+}
+
+.seccion-premios h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.contenedor-premios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que bajen de línea en celulares */
+}
+
+.tarjeta-premio {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 260px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de salto al pasar el mouse o tocar en celular */
+.tarjeta-premio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta-premio img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* Evita que las fotos se deformen o aplasten */
+    display: block;
+    border-bottom: 3px solid #007bff; /* Un detalle de color */
+}
+
+.tarjeta-premio h3 {
+    margin: 15px 0 5px 0;
+    color: #007bff;
+    font-size: 1.3em;
+}
+
+.tarjeta-premio p {
+    margin: 0 15px 15px 15px;
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.4;
 }
