@@ -6,31 +6,24 @@
     <title>Panel de Administración - Rifa</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
-        .contenedor-admin { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
+        .contenedor-admin { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; min-width: 700px; }
         th, td { padding: 12px; border-bottom: 1px solid #ddd; }
         th { background-color: #007bff; color: white; }
         button { padding: 8px 12px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px; }
         .btn-pagar { background-color: #28a745; color: white; }
         .btn-liberar { background-color: #dc3545; color: white; }
         button:hover { opacity: 0.9; }
-        /* Contenedor con scroll horizontal para móviles */
+        .orden-id { font-size: 0.85em; color: #666; background: #eee; padding: 2px 6px; border-radius: 4px; }
+        .numeros-grupo { font-size: 1.1em; color: #007bff; }
+        
         .tabla-responsiva {
             width: 100%;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* Hace que el scroll sea suave en iPhone/Android */
+            -webkit-overflow-scrolling: touch;
             margin-top: 20px;
         }
 
-        /* Ajuste de la tabla para que no colapse demasiado sus columnas */
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            text-align: left; 
-            min-width: 600px; /* Obliga a la tabla a mantener un ancho decente para no aplastar el texto */
-        }
-
-        /* Apilar los botones en móviles para que no ocupen tanto espacio a lo ancho */
         td button {
             display: block;
             width: 100%;
@@ -46,12 +39,13 @@
 <body>
     <div class="contenedor-admin">
         <h1>Control de Reservas (Administración)</h1>
-        <p>Aquí aparecen únicamente los números en estado <strong>Amarillo (Reservado)</strong> pendientes de pago.</p>
+        <p>Aquí aparecen las órdenes agrupadas en estado <strong>Amarillo (Reservado)</strong> pendientes de pago.</p>
         <div class="tabla-responsiva">
             <table>
                 <thead>
                     <tr>
-                        <th>Boleto</th>
+                        <th>Orden</th>
+                        <th>Boletos</th>
                         <th>Comprador</th>
                         <th>Teléfono</th>
                         <th>Vendedor</th>
@@ -60,11 +54,11 @@
                 </thead>
                 <tbody id="tabla-reservas">
                     <tr>
-                        <td colspan="5" style="text-align:center;">Cargando reservas pendientes...</td>
+                        <td colspan="6" style="text-align:center;">Cargando reservas pendientes...</td>
                     </tr>
                 </tbody>
             </table>
-        </div> <!-- Cierra el div justo después de la tabla -->
+        </div>
     </div>
 
     <script type="module" src="admin.js"></script>
