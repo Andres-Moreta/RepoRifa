@@ -44,7 +44,7 @@ onSnapshot(maestroRef, (docSnap) => {
     const todosLosNumeros = docSnap.data();
 
     // Recorremos y creamos los botones del 001 al 1000
-    for (let i = 1; i <= 1000; i++) {
+    for (let i = 0; i <= 999; i++) {
         let numStr = i.toString().padStart(3, '0');
         let datosBoleto = todosLosNumeros[numStr];
 
