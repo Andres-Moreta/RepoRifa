@@ -105,7 +105,7 @@ function agregarEventosBotones() {
                     let telefonoWA = "593" + telefonoOrig.replace(/^0+/, '');
                     
                     // Construir el mensaje exacto
-                    let mensaje = `¡Hola ${comprador}! Muchas gracias por su apoyo. Confirmamos la compra de sus boletos: ${boletosStr}. El proceso de sorteo va a ser con los 3 últimos números de sorteo de lotería nacional del día 01/07/2026 los 5 primeros lugares. ¡Mucha suerte!`;
+                    let mensaje = `¡Hola ${comprador}! Muchas gracias por su apoyo. Confirmamos la compra de sus boletos: ${boletosStr}. Los premios serán de acuerdo a los 3 últimos digitos de las 5 primeras suertes del sorteo de lotería nacional del día 01/07/2026. ¡Mucha suerte!`;
                     
                     // Codificar el texto para que los espacios y símbolos viajen bien en la URL
                     let linkWhatsapp = `https://wa.me/${telefonoWA}?text=${encodeURIComponent(mensaje)}`;
