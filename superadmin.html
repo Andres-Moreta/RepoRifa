@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Súper Administrador - Control de Ventas</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eef2f5; padding: 20px; text-align: center; }
+        .contenedor-admin { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #6f42c1; }
+        h1 { color: #6f42c1; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; min-width: 700px; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #6f42c1; color: white; }
+        button { padding: 8px 12px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+        .btn-revertir { background-color: #ffc107; color: #333; }
+        button:hover { opacity: 0.9; }
+        .orden-id { font-size: 0.85em; color: #666; background: #eee; padding: 2px 6px; border-radius: 4px; }
+        .numeros-grupo { font-size: 1.1em; color: #28a745; }
+        
+        .tabla-responsiva {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 20px;
+        }
+
+        td button {
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-admin">
+        <h1>Panel Súper Administrador (Auditoría)</h1>
+        <p>Aquí aparecen todas las ventas confirmadas en estado <strong>Pagado (Vendido)</strong>.</p>
+        <div class="tabla-responsiva">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Boletos Vendidos</th>
+                        <th>Comprador</th>
+                        <th>Teléfono</th>
+                        <th>Vendedor</th>
+                        <th>Acción de Corrección</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-ventas">
+                    <tr>
+                        <td colspan="6" style="text-align:center;">Cargando ventas confirmadas...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="superadmin.js"></script>
+</body>
+</html>
