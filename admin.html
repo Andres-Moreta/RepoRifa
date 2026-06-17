@@ -7,12 +7,20 @@
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
         .contenedor-admin { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* Contenedor del encabezado para alinear título y botón */
+        .encabezado-admin { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+        .encabezado-admin h1 { margin: 0; font-size: 1.5em; }
+        
         table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; min-width: 700px; }
         th, td { padding: 12px; border-bottom: 1px solid #ddd; }
         th { background-color: #007bff; color: white; }
         button { padding: 8px 12px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+        
         .btn-pagar { background-color: #28a745; color: white; }
         .btn-liberar { background-color: #dc3545; color: white; }
+        .btn-exportar { background-color: #198754; color: white; font-size: 1em; padding: 10px 15px; display: flex; align-items: center; gap: 5px; }
+        
         button:hover { opacity: 0.9; }
         .orden-id { font-size: 0.85em; color: #666; background: #eee; padding: 2px 6px; border-radius: 4px; }
         .numeros-grupo { font-size: 1.1em; color: #007bff; }
@@ -34,11 +42,18 @@
         td button:last-child {
             margin-bottom: 0;
         }
+
+        @media (max-width: 600px) {
+            .encabezado-admin { flex-direction: column; gap: 15px; }
+        }
     </style>
 </head>
 <body>
     <div class="contenedor-admin">
-        <h1>Control de Reservas (Administración)</h1>
+        <div class="encabezado-admin">
+            <h1>Control de Reservas (Administración)</h1>
+            <button id="btn-exportar" class="btn-exportar">📊 Exportar Reporte a Excel</button>
+        </div>
         <p>Aquí aparecen las órdenes agrupadas en estado <strong>Amarillo (Reservado)</strong> pendientes de pago.</p>
         <div class="tabla-responsiva">
             <table>

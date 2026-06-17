@@ -16,6 +16,9 @@ const db = getFirestore(app);
 const tablaReservas = document.getElementById("tabla-reservas");
 const maestroRef = doc(db, "rifa_maestra", "todos_los_boletos");
 
+// Variable para almacenar los datos en memoria y exportarlos sin gastar lecturas extra
+let datosGlobalesRifa = {};
+
 // Escuchar cambios en el documento maestro
 onSnapshot(maestroRef, (docSnap) => {
     tablaReservas.innerHTML = "";
@@ -26,10 +29,11 @@ onSnapshot(maestroRef, (docSnap) => {
     }
 
     const datos = docSnap.data();
+    datosGlobalesRifa = datos; // Guardamos foto de la base de datos
     const reservasAgrupadas = {};
 
-    // 1. Agrupar todos los boletos reservados por su ID de Compra
-    for (let i = 1; i <= 1000; i++) {
+    // 1. Agrupar todos los boletos reservados por su ID de Compra (Inicia en 0 para el boleto 000)
+    for (let i = 0; i <= 1000; i++) {
         let numStr = i.toString().padStart(3, '0');
         let boleto = datos[numStr];
 
@@ -158,3 +162,42 @@ async function liberarMasivo(arrayBoletos) {
         alert("Error al liberar boletos: " + error);
     }
 }
+
+// --- LÓGICA: EXPORTAR A EXCEL ---
+document.getElementById("btn-exportar").addEventListener("click", () => {
+    let csvContent = "Boleto;Estado;Comprador;Teléfono;Vendedor;ID Orden;Fecha de Reserva\n";
+
+    for (let i = 0; i <= 1000; i++) {
+        let numStr = i.toString().padStart(3, '0');
+        let boleto = datosGlobalesRifa[numStr];
+
+        if (boleto && (boleto.estado === "reservado" || boleto.estado === "pagado")) {
+            let comprador = boleto.comprador ? boleto.comprador.replace(/;/g, "") : "";
+            let telefono = boleto.telefono || "";
+            let vendedor = boleto.vendedor || "General";
+            let idCompra = boleto.id_compra || "";
+            
+            let fecha = "";
+            if (boleto.fecha_reserva) {
+                let d = new Date(boleto.fecha_reserva);
+                fecha = d.toLocaleDateString('es-ES') + " " + d.toLocaleTimeString('es-ES');
+            }
+
+            let fila = `"${numStr}";"${boleto.estado.toUpperCase()}";"${comprador}";"${telefono}";"${vendedor}";"${idCompra}";"${fecha}"`;
+            csvContent += fila + "\n";
+        }
+    }
+
+    const blob = new Blob(["\uFEFF" + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement("a");
+    link.href = url;
+    
+    const fechaHoy = new Date().toISOString().split('T')[0];
+    link.setAttribute("download", `Reporte_Rifa_${fechaHoy}.csv`);
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
