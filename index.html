@@ -3,80 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifa Solidaria</title>
+    <title>Resultados - Rifa Solidaria</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos extra para los ganadores y la foto del sorteo */
+        .seccion-sorteo { text-align: center; margin: 30px auto; max-width: 800px; padding: 0 20px; }
+        .seccion-sorteo img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 3px solid #007bff; }
+        .ganador-box { background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-top: auto; border: 1px solid #c3e6cb;}
+        .ganador-box strong { display: block; font-size: 1.1em; margin-bottom: 5px; }
+    </style>
 </head>
 <body>
     <header class="encabezado-principal">
-        <h1>Rifa Solidaria</h1>
-        <p class="lema">"Unámonos con el corazón para apoyar a nuestro amigo en su tratamiento médico. ¡Tú puedes ser parte de su recuperación! "Hoy por ti, mañana por mí. ¡Gracias por tu valioso apoyo!""</p>
-        <h2>Valor del boleto: $1.00 (Un dolarito)</h2>
-        <h3>Los premios serán de acuerdo a los 3 últimos digitos de las 5 primeras suertes del sorteo de lotería nacional del día 01/07/2026</h3>
+        <h1>¡Rifa Solidaria Concluida!</h1>
+        <p class="lema">"Unámonos con el corazón para apoyar a nuestro amigo en su tratamiento médico. ¡Tú puedes ser parte de su recuperación! Hoy por ti, mañana por mí."</p>
+        <h2>¡Muchísimas gracias a todos por su valioso apoyo!</h2>
+        <h3>Resultados basados en las 5 primeras suertes del sorteo de Lotería Nacional del día 01/07/2026.</h3>
     </header>
 
-    <section class="seccion-premios">
-        <h2>🎁 Grandes Premios 🎁</h2>
-        <div class="contenedor-premios">
-            <div class="tarjeta-premio">
-                <img src="arrocera.jpeg" alt="Primer Premio">
-                <h3>1er Premio</h3>
-                <p>Olla arrocera con vaporera 1.8L.</p>
-            </div>
-            
-            <div class="tarjeta-premio">
-                <img src="licuadora.jpeg" alt="Segundo Premio">
-                <h3>2do Premio</h3>
-                <p>Licuadora con vaso picatodo 4 cuchillas.</p>
-            </div>
-
-            <div class="tarjeta-premio">
-                <img src="set_bar.jpeg" alt="Tercer Premio">
-                <h3>3er Premio</h3>
-                <p>Set de bar y ensaladeras.</p>
-            </div>
-
-            <div class="tarjeta-premio">
-                <img src="camar_carro.jpeg" alt="Tercer Premio">
-                <h3>4to Premio</h3>
-                <p>Cámara de video para automóvil.</p>
-            </div>
-
-            <div class="tarjeta-premio">
-                <img src="premio_sorpresa.jpeg" alt="Tercer Premio">
-                <h3>5to Premio</h3>
-                <p>Premio sorpresa.</p>
-            </div>
-        </div>
-    </section>
-
     <main>
-        <section class="panel-compra">
-            <form id="form-reserva">
-                <div class="grupo-inputs">
-                    <div>
-                        <label for="nombre">Nombre y Apellido:</label>
-                        <input type="text" id="nombre" required placeholder="Ej. Ana Pérez">
-                    </div>
-                    <div>
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" required placeholder="Ej. 0991234567">
+        <!-- SECCIÓN NUEVA: Foto del Sorteo -->
+        <section class="seccion-sorteo">
+            <h2>SORTEO</h2>
+            <p>Aquí puedes ver la captura oficial del sorteo donde se definieron los números ganadores.</p>
+            <img src="loteria.jpg" alt="Imagen del Sorteo de Lotería Nacional">
+        </section>
+
+        <section class="seccion-premios">
+            <h2>🏆 Ganadores Oficiales 🏆</h2>
+            <div class="contenedor-premios">
+                
+                <!-- Premio 1 -->
+                <div class="tarjeta-premio">
+                    <img src="arrocera.jpeg" alt="Primer Premio">
+                    <h3>1er Premio</h3>
+                    <p>Olla arrocera con vaporera 1.8L.</p>
+                    <div class="ganador-box">
+                        <strong>🏆 Ganador:</strong> Oswaldo Moreta <br>
+                        <strong>Boleto:</strong> 830
                     </div>
                 </div>
                 
-                <div class="resumen">
-                    <p>Números seleccionados: <strong id="contador-numeros">0</strong></p>
-                    <p id="lista-seleccionados"></p>
+                <!-- Premio 2 -->
+                <div class="tarjeta-premio">
+                    <img src="licuadora.jpeg" alt="Segundo Premio">
+                    <h3>2do Premio</h3>
+                    <p>Licuadora con vaso picatodo 4 cuchillas.</p>
+                    <div class="ganador-box">
+                        <strong>🏆 Ganador:</strong> Daniel Orozco <br>
+                        <strong>Boleto:</strong> 043
+                    </div>
                 </div>
 
-                <button type="submit" id="btn-guardar" disabled>Guardar y Reservar Números</button>
-            </form>
+                <!-- Premio 3 -->
+                <div class="tarjeta-premio">
+                    <img src="set_bar.jpeg" alt="Tercer Premio">
+                    <h3>3er Premio</h3>
+                    <p>Set de bar y ensaladeras.</p>
+                    <div class="ganador-box">
+                        <strong>🏆 Ganador:</strong> Patricio Leon <br>
+                        <strong>Boleto:</strong> 160
+                    </div>
+                </div>
+
+                <!-- Premio 4 -->
+                <div class="tarjeta-premio">
+                    <img src="camar_carro.jpeg" alt="Cuarto Premio">
+                    <h3>4to Premio</h3>
+                    <p>Cámara de video para automóvil.</p>
+                    <div class="ganador-box">
+                        <strong>🏆 Ganador:</strong> Alicia Paez <br>
+                        <strong>Boleto:</strong> 462
+                    </div>
+                </div>
+
+                <!-- Premio 5 -->
+                <div class="tarjeta-premio">
+                    <img src="premio_sorpresa.jpeg" alt="Quinto Premio">
+                    <h3>5to Premio</h3>
+                    <p>Premio sorpresa.</p>
+                    <div class="ganador-box">
+                        <strong>🏆 Ganador:</strong> Ana Perez <br>
+                        <strong>Boleto:</strong> 568
+                    </div>
+                </div>
+
+            </div>
         </section>
-
-        <div id="contenedor-boletos" class="cuadricula">
-            Cargando números...
-        </div>
     </main>
-
-    <script type="module" src="app.js"></script>
 </body>
 </html>
